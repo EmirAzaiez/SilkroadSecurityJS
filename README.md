@@ -47,6 +47,23 @@ security.GetPacketToRecv() // return [{ opcode, data, encrypted, massive }]
 security.GetPacketToSend() // return [{ opcode, data, encrypted, massive }]
 ```
 
+## Examples
+
+[clientless.js](https://github.com/EmirAzaiez/SilkroadSecurityJS/blob/master/examples/clientless.js) in this project you can see how Silkroad Security JS is working, you've to change IP, Port, version and local to make it working. This project will show you Silkroad Server status and capacity, you can also change it for join the game world.
+
+```
+const { SilkroadSecurityJS, stream } = require('silkroad-security-js')
+
+let security = new SilkroadSecurityJS("SR_Client", 0)
+
+security.GenerateHandshake(blowfish = true, security_bytes = true, handshake = true)
+security.ChangeIdentity(identity_name = "SR_Client", identity_flag = 0)
+security.Recv(data = [])
+security.Send(opcode = 0x0000, data = [], encrypted = false, massive = false)
+security.GetPacketToRecv() // return [{ opcode, data, encrypted, massive }]
+security.GetPacketToSend() // return [{ opcode, data, encrypted, massive }]
+```
+
 ## Compiling
 
 ### Requirements
@@ -68,6 +85,10 @@ Then you'll find all **.node** file in build *folder*
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+## Credits
+Drew (pushedx)
+Weeman
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
