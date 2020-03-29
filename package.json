@@ -1,7 +1,7 @@
 {
   "name": "silkroad-security",
   "description": "c++ Silkroad Security wrapper for nodejs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "lib/index.js",
   "dependencies": {
     "node-addon-api": "^2.0.0",
