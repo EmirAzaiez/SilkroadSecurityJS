@@ -2,6 +2,12 @@
 
 This project is a Drew's SilkroadSecurity API wrapper to be use in node.js. 
 
+## Requirements
+
+```bash
+"node": ">=12.0.0"
+```
+
 ## Installation
 
 This security system is crossplatform, you can use it on unix (linux, macos (darwin)) system and win32/win64.
@@ -18,33 +24,41 @@ Install without ignoring scripts:
 npm install silkroad-security
 ```
 
-## Requirements
-
-```bash
-"node": ">=12.0.0"
-```
-
-## Installation
-
-This security system is crossplatform, you can use it on unix (linux, macos (darwin)) system and win32/win64.
-
-```bash
-npm install silkroad-security --save
-```
-
 ## Usage
 
 ```
 const { SilkroadSecurityJS, stream } = require('silkroad-security-js')
 
+//Security
 let security = new SilkroadSecurityJS("SR_Client", 0)
 
 security.GenerateHandshake(blowfish = true, security_bytes = true, handshake = true)
 security.ChangeIdentity(identity_name = "SR_Client", identity_flag = 0)
-security.Recv(data = [])
-security.Send(opcode = 0x0000, data = [], encrypted = false, massive = false)
+security.Recv(data) //data can be instance of Array or Buffer
+security.Send(opcode = 0x0000, data = [], encrypted = false, massive = false) //data can be instance of Array, Buffer or a stream
 security.GetPacketToRecv() // return [{ opcode, data, encrypted, massive }]
 security.GetPacketToSend() // return [{ opcode, data, encrypted, massive }]
+
+//Stream
+let reader = new stream.reader(data) //data is the stream to read should be an array of int
+reader.uint8()
+reader.uint16()
+reader.uint32()
+reader.uint64()
+reader.string()
+reader.float()
+reader.bool()
+reader.toData() // extract the current buffer to array of int
+
+let writer = new stream.writer()
+writer.uint8()
+writer.uint16()
+writer.uint32()
+writer.uint64()
+writer.string()
+writer.float()
+writer.bool()
+writer.toData() // extract the current buffer to array of int
 ```
 
 ## Examples

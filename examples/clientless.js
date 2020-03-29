@@ -20,7 +20,7 @@ client.connect({
 });
 
 client.on('data', (data) => {
-    security.Recv(data.toJSON().data)
+    security.Recv(data)
 });
 
 setInterval(() => {
@@ -62,7 +62,7 @@ function HandlePacketGateway(security, packet) {
             rep.string("SR_Client");
             rep.uint32(silkroad.version);
             
-            security.Send(0x6100, rep.bytes().toJSON().data, true, false)
+            security.Send(0x6100, rep, true, false)
 
         } 
             
@@ -80,6 +80,7 @@ function HandlePacketGateway(security, packet) {
         var servers = []
 
         while (reader.uint8() == 1) {
+            
             var server = {
                 serverID: reader.uint16(),
                 Name: reader.string('ascii'),
