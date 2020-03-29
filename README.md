@@ -77,7 +77,7 @@ Boost :
 ```
 npm install
 node-gyp configure
-node-build
+node-gyp build
 ```
 
 Then you'll find all **.node** file in build *folder*
