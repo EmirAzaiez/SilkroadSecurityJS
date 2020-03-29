@@ -7,7 +7,15 @@ This project is a Drew's SilkroadSecurity API wrapper to be use in node.js.
 This security system is crossplatform, you can use it on unix (linux, macos (darwin)) system and win32/win64.
 
 ```bash
-npm install silkroad-security-js
+npm install silkroad-security --ignore-scripts
+```
+
+You can also install without ignoring scripts (it'll compile library during the installation, then you'll need to do the requirements step for compiling).
+
+Install without ignoring scripts:
+
+```bash
+npm install silkroad-security
 ```
 
 ## Requirements
@@ -21,7 +29,7 @@ npm install silkroad-security-js
 This security system is crossplatform, you can use it on unix (linux, macos (darwin)) system and win32/win64.
 
 ```bash
-npm install silkroad-security-js --save
+npm install silkroad-security --save
 ```
 
 ## Usage
