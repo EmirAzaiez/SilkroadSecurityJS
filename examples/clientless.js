@@ -2,7 +2,7 @@ const { SilkroadSecurityJS, stream } = require('silkroad-security'),
     net = require('net');
 
 let silkroad = {
-        ip: 'IP',
+        ip: '127.0.0.1',
         port: 15779,
         version: 201,
         local: 22
